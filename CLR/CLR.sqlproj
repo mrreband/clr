@@ -58,6 +58,8 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Functions" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -71,5 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="sqlbox.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Functions\GetUniqueConsonants.sql" />
   </ItemGroup>
 </Project>
