@@ -24,10 +24,10 @@ SELECT regex.IsMatch('This is a test', '[\w]+') AS Result
 UNION ALL 
 SELECT regex.IsMatch('This is a test', '[\d]+')
 ```
-|      Result     |
-| --------------- |
-| 1  |
-| 0  |
+| Result |
+| ------ |
+| 1      |
+| 0      |
 
 ---
 
@@ -41,9 +41,9 @@ SELECT regex.IsMatch('This is a test', '[\d]+')
 SELECT value FROM dbo.RegexMatch('This is a test', '[\w]+')
 ```
 
-|      Result     |
-| --------------- |
+| value |
+| ----- |
 | This  |
-| is  |
-| a  |
+| is    |
+| a     |
 | test  |
