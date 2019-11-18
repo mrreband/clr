@@ -1,13 +1,11 @@
 # clr
 Safe assembly CLR database project with some basic text functions
 
------
+---
 
 ### CLR Scalar-Valued Functions for Regular Expressions
 
----
-
-regex.Replace (@TextString, @RegexPattern, @ReplaceString)
+`regex.Replace (@TextString, @RegexPattern, @ReplaceString)`
 
 ```sql
 SELECT regex.Replace('This     is   a     test', '\s+', ' ') as Result
@@ -19,7 +17,7 @@ SELECT regex.Replace('This     is   a     test', '\s+', ' ') as Result
 
 ---
 
-regex.IsMatch (@TextString, @RegexPattern)
+`regex.IsMatch (@TextString, @RegexPattern)`
 
 ```sql
 SELECT regex.IsMatch('This is a test', '[\w]+') AS Result
@@ -33,15 +31,19 @@ SELECT regex.IsMatch('This is a test', '[\d]+')
 
 ---
 
-regex.Match (@TextString, @RegexPattern)
+### CLR Tabled-Valued Functions for Regular Expressions
+
+---
+
+`regex.Match (@TextString, @RegexPattern)`
 
 ```sql
-SELECT regex.Match('This is a test', '[\w]+') AS Result
-UNION ALL 
-SELECT regex.Match('This is a test', '[\d]+')
+SELECT value FROM dbo.RegexMatch('This is a test', '[\w]+')
 ```
 
 |      Result     |
 | --------------- |
 | This  |
-| `NULL`  |
+| is  |
+| a  |
+| test  |
