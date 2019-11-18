@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RegexFunctions.cs" />
+    <Compile Include="StringFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sqlbox.publish.xml" />
