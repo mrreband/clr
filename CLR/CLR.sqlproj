@@ -60,11 +60,11 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Functions" />
-    <Folder Include="CLR" />
     <Folder Include="publish" />
     <Folder Include="regex" />
     <Folder Include="regex\CLR" />
     <Folder Include="regex\Synonyms" />
+    <Folder Include="dbo\CLR" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -73,8 +73,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLR\StringFunctions.cs" />
     <Compile Include="regex\CLR\RegexFunctions.cs" />
+    <Compile Include="dbo\CLR\StringFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="publish\sqlbox.publish.xml" />
