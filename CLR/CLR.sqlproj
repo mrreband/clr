@@ -62,6 +62,9 @@
     <Folder Include="dbo\Functions" />
     <Folder Include="CLR" />
     <Folder Include="publish" />
+    <Folder Include="regex" />
+    <Folder Include="regex\CLR" />
+    <Folder Include="regex\Synonyms" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -70,13 +73,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLR\RegexFunctions.cs" />
     <Compile Include="CLR\StringFunctions.cs" />
+    <Compile Include="regex\CLR\RegexFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="publish\sqlbox.publish.xml" />
+    <None Include="publish\hamachihost.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Functions\GetUniqueConsonants.sql" />
+    <Build Include="regex\regex.sql" />
+    <Build Include="regex\Synonyms\RegexReplace.sql" />
+    <Build Include="regex\Synonyms\RegexIsMatch.sql" />
+    <Build Include="regex\Synonyms\RegexMatch.sql" />
   </ItemGroup>
 </Project>
