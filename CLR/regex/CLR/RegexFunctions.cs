@@ -29,6 +29,28 @@ public partial class UserDefinedFunctions
         return r1.Match(textString.TrimEnd(null)).Success;
     }
 
+    [SqlFunction]
+    public static SqlString Vowels(SqlString TextString, bool IncludeY = false)
+    {
+        var textString = (TextString.IsNull) ? "" : TextString.ToString();
+        var regexPattern = (IncludeY) ? "[aeiouy]" : "[aeiou]";
+
+        Regex r1 = new Regex(regexPattern.TrimEnd(null), RegexOptions.IgnoreCase);
+        var vowels = r1.Matches(textString).Cast<Match>().Select(m => m.Value.ToString());
+        return String.Join("", vowels);
+    }
+
+    [SqlFunction]
+    public static SqlString Consonants(SqlString TextString)
+    {
+        var textString = (TextString.IsNull) ? "" : TextString.ToString();
+        var regexPattern = "[^aeiou]";
+
+        Regex r1 = new Regex(regexPattern.TrimEnd(null), RegexOptions.IgnoreCase);
+        var consonants = r1.Matches(textString).Cast<Match>().Select(m => m.Value.ToString());
+        return String.Join("", consonants);
+    }
+
     [SqlFunction(FillRowMethodName = "FillRegexMatches", TableDefinition = "value nvarchar(1000)")]
     public static IEnumerable RegexMatch(SqlString TextString, SqlString RegexPattern)
     {
