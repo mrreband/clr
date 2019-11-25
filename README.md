@@ -38,12 +38,12 @@ SELECT regex.IsMatch('This is a test', '[\d]+')
 `regex.Matches (@TextString, @RegexPattern)`
 
 ```sql
-SELECT value FROM dbo.RegexMatches('This is a test', '[\w]+')
+SELECT idx, value FROM dbo.RegexMatches('This is a test', '[\w]+')
 ```
 
-| value |
-| ----- |
-| This  |
-| is    |
-| a     |
-| test  |
+| idx | value |
+| --- | ----- |
+| 0   | This  |
+| 5   | is    |
+| 8   | a     |
+| 10  | test  |
