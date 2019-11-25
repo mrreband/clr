@@ -52,7 +52,7 @@ public partial class UserDefinedFunctions
     }
 
     [SqlFunction(FillRowMethodName = "FillRegexMatches", TableDefinition = "value nvarchar(1000)")]
-    public static IEnumerable RegexMatch(SqlString TextString, SqlString RegexPattern)
+    public static IEnumerable RegexMatches(SqlString TextString, SqlString RegexPattern)
     {
         var textString = (TextString.IsNull) ? "" : TextString.ToString();
         var regexPattern = (TextString.IsNull) ? "" : RegexPattern.ToString();

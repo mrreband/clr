@@ -85,7 +85,7 @@
     <Build Include="regex\regex.sql" />
     <Build Include="regex\Synonyms\RegexReplace.sql" />
     <Build Include="regex\Synonyms\RegexIsMatch.sql" />
-    <Build Include="regex\Synonyms\RegexMatch.sql" />
+    <Build Include="regex\Synonyms\RegexMatches.sql" />
     <Build Include="regex\Synonyms\Vowels.sql" />
     <Build Include="regex\Synonyms\Consonants.sql" />
   </ItemGroup>
