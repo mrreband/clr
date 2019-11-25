@@ -35,10 +35,10 @@ SELECT regex.IsMatch('This is a test', '[\d]+')
 
 ---
 
-`regex.Match (@TextString, @RegexPattern)`
+`regex.Matches (@TextString, @RegexPattern)`
 
 ```sql
-SELECT value FROM dbo.RegexMatch('This is a test', '[\w]+')
+SELECT value FROM dbo.RegexMatches('This is a test', '[\w]+')
 ```
 
 | value |
