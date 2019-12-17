@@ -53,6 +53,17 @@ public partial class UserDefinedFunctions
         return String.Join("", consonants);
     }
 
+    [SqlFunction]
+    public static SqlString RegexMatch(SqlString TextString, SqlString RegexPattern)
+    {
+        var textString = (TextString.IsNull) ? "" : TextString.ToString();
+        var regexPattern = (TextString.IsNull) ? "" : RegexPattern.ToString();
+
+        Regex r1 = new Regex(regexPattern.TrimEnd(null));
+        var match = r1.Match(textString.TrimEnd(null)).Value;
+        return (match == "") ? (SqlString)null : match;
+    }
+
     [SqlFunction(FillRowMethodName = "FillRegexMatches", TableDefinition = "idx int, value nvarchar(1000)")]
     public static IEnumerable RegexMatches(SqlString TextString, SqlString RegexPattern)
     {
@@ -64,24 +75,24 @@ public partial class UserDefinedFunctions
         var matches = r1.Matches(textString.TrimEnd(null));
         if (matches.Count > 0)
         {
-            return matches.Cast<Match>().Select(m => new RegexMatch(m.Index, m.Value.ToString()));
+            return matches.Cast<Match>().Select(m => new RegexMatchCls(m.Index, m.Value.ToString()));
         }
         return matches;
     }
 
     private static void FillRegexMatches(Object obj, out SqlInt32 idx, out SqlString value)
     {
-        var regexMatch = (RegexMatch)obj;
+        var regexMatch = (RegexMatchCls)obj;
         idx = regexMatch.Index;
         value = regexMatch.Value;
     }
 
-    private class RegexMatch
+    private class RegexMatchCls
     {
         public SqlInt32 Index;
         public SqlString Value;
 
-        public RegexMatch(SqlInt32 idx, SqlString value)
+        public RegexMatchCls(SqlInt32 idx, SqlString value)
         {
             Index = idx;
             Value = value;

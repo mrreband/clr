@@ -25,4 +25,12 @@ public partial class UserDefinedFunctions
         var sorted = datalist.OrderBy(c => c).ToList();
         return String.Concat(sorted);
     }
+
+    [SqlFunction]
+    public static SqlString AlphaChars(SqlString TextString)
+    {
+        var textString = (TextString.IsNull) ? "" : TextString.ToString();
+        var alphas = new String(textString.Where(Char.IsLetter).ToArray());
+        return alphas;
+    }
 }

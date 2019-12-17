@@ -88,5 +88,6 @@
     <Build Include="regex\Synonyms\RegexMatches.sql" />
     <Build Include="regex\Synonyms\Vowels.sql" />
     <Build Include="regex\Synonyms\Consonants.sql" />
+    <Build Include="regex\Synonyms\RegexMatch.sql" />
   </ItemGroup>
 </Project>
