@@ -1,1 +1,1 @@
-﻿CREATE SYNONYM regex.[Match] FOR dbo.RegexMatch
+﻿CREATE SYNONYM regex.Match FOR dbo.RegexMatch
