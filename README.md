@@ -58,7 +58,7 @@ SELECT regex.Match('This is a test', '[\d]+')
   - value = matched string
 
 ```sql
-SELECT idx, value FROM dbo.RegexMatches('This is a test', '[\w]+')
+SELECT idx, value FROM regex.Matches('This is a test', '[\w]+')
 ```
 
 | idx | value |
